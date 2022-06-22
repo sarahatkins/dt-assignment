@@ -6,7 +6,7 @@
   height: 10vh;
   animation: progressbar-countdown;
   /* Placeholder, this will be updated using javascript */
-  animation-duration: 30000s;
+  animation-duration: 30s;
   /* We stop in the end */
   animation-iteration-count: 1;
   /* Stay on pause when the animation is finished finished */
@@ -39,8 +39,19 @@
 }
 
 .startCount {
-  background-color: pink;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/images/welcomeImg.png');
+  background-size: cover;
+  display: flex;
+  justify-content: left;
+  padding-left: 10%;
+  padding-top: 5%;
+}
 
+.numbers{
+  font-size: 400px;
+  width: 50%;
 }
 
 #goBackRules{
@@ -189,6 +200,11 @@ button {
 #gameOverInfo{
   width: 30%;
   height: 30vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  margin-bottom: 3%;
 }
 
 .ruleWords{
@@ -207,6 +223,11 @@ button {
   flex-direction: column;
 }
 
+#backHomeBtn{
+  width: 15%;
+  bottom: 0%;
+}
+
 .dispScore {
   margin-top: 5%;
   width: 25%;
@@ -216,7 +237,7 @@ button {
   align-items: center;
   justify-content: center;
   margin-right: auto;
-   
+  
   transform: rotate(90deg);
   border: 2px black solid;
   background-color: pink;

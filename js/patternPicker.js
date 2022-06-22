@@ -296,13 +296,13 @@ function generatePattern(generated, checker) {
   console.log('this is the check array: ' + checker); //correct here
 }
 
-function setGenerateImg(shape){ //TO DO: get Josh
-  if(shape.className !== "oneShape" || shape.className !== "twoShape"){
-    if(shape.className == "circle"){
+function setGenerateImg(shape) { //TO DO: get Josh
+  if (shape.className !== "oneShape" || shape.className !== "twoShape") {
+    if (shape.className == "circle") {
       document.getElementById("myImg").src = "/image/circleGenerated";
-    } else if(shape.className == "square"){
+    } else if (shape.className == "square") {
       document.getElementById("myImg").src = "hackanm.gif";
-    }else{
+    } else {
       document.getElementById("myImg").src = "hackanm.gif";
     }
   }
@@ -447,6 +447,12 @@ document.querySelector("#backHomeBtn").addEventListener("click", (e) => {
 
 function leftRightFunc() {
   var lOrR = localStorage.getItem('display');
+  if (document.getElementById('txtLeft').innerHTML === "Left") {
+    document.getElementById('txtLeft').innerHTML = "Right";
+  } else {
+    document.getElementById('txtLeft').innerHTML = "Left";
+  }
+
   lOrR === 'left' ? lOrR = 'right' : lOrR = 'left';
   if (lOrR == "right") {
     document.getElementById("playerInput").style.transform = "rotate(180deg)";
@@ -464,49 +470,66 @@ window.addEventListener("gamepadconnected", function (e) {
 });
 
 function switchButtons(letter) { //better way to do this
-  if (letter === "w") {
+  if (letter === "w") { //(38, 39, 37) w, d a
     if (currentPage == "welcome") {
       document.getElementById("getStarted").click();
     } else if (currentPage == "home") {
       document.getElementById("playNow").click();
     } else if (currentPage == "settings") {
-      document.getElementById("mute").click();
+      document.getElementById("setDisplay").click();
     }
   } else if (letter === "d") {
     if (currentPage == "home") {
       document.getElementById("rules").click();
       document.getElementById("changeScreen").play();
       currentPage = "rules";
-    } else if (currentPage == "rules") {
+    }
+  } else if (letter === "39") {
+    if (currentPage == "rules") {
       document.getElementById("goBackRules").click();
       document.getElementById("changeScreen").play();
       currentPage = "home";
+    } else if (currentPage == "settings") {
+      document.getElementById("mute").click();
     }
   } else if (letter === "a") {
     if (currentPage == "home") {
       document.getElementById("settings").click();
       document.getElementById("changeScreen").play();
       currentPage = "settings";
-    } else if (currentPage == "settings") {
+    }
+  } else if (letter === "37") {
+    if (currentPage == "settings") {
+      document.getElementById("setDisplay").click();
+    }
+  } else if (letter === "38") {
+    if (currentPage == "settings") {
       document.getElementById("goBackSet").click();
       document.getElementById("changeScreen").play();
       currentPage = "home";
     }
+
   }
 }
 
 
-window.addEventListener("keydown", function (event) {
+window.addEventListener("keydown", function (e) {
   // If the user presses the "Enter" key on the keyboard
-  console.log(event);
-  if (event.key === "w") {
+  console.log(e);
+  if (e.key === "w") {
     // Cancel the default action, if needed
-    event.preventDefault();
+    e.preventDefault();
     switchButtons("w");
-  } else if (event.key === "d") {
+  } else if (e.key === "d") {
     switchButtons("d");
-  } else if (event.key === "a") {
+  } else if (e.key === "a") {
     switchButtons("a");
+  } else if (e.key === "ArrowUp") { //up
+    switchButtons("37");
+  } else if (e.key === "ArrowRight") { //right
+    switchButtons("39");
+  } else if (e.key === "ArrowLeft") { //left
+    switchButtons("38");
   }
 });
 
@@ -524,6 +547,11 @@ function toggleMute() {
   var gameAudio = document.getElementById('gameMusic');
   homeAudio.muted = !homeAudio.muted;
   gameAudio.muted = !gameAudio.muted;
-
+  if (document.getElementById('txtMute').innerHTML === "Mute") {
+    document.getElementById('txtMute').innerHTML = "UnMute";
+  } else {
+    document.getElementById('txtMute').innerHTML = "Mute";
+  }
 }
+
 
