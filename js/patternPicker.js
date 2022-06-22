@@ -111,6 +111,14 @@ addEventListener('load', function () {
 function displayShapeGenerated(shape, generator) {//loop through and display
   let div = document.createElement('div');
   div.className = 'generatedPattern pattern ' + shape;
+  //TO DO: add in a function that sifts through shapes and gives specific id
+  if(shape == "circle"){
+    div.id = 'genCircleId';
+  } else if (shape == 'square'){
+    div.id = 'genSquareId';
+  } else {
+    div.id = 'genTriId';
+  }
   document.getElementById(generator).appendChild(div);
   console.log(div);
 }
@@ -457,6 +465,8 @@ function leftRightFunc() {
   if (lOrR == "right") {
     document.getElementById("playerInput").style.transform = "rotate(180deg)";
     document.getElementById("playerInput2").style.transform = "rotate(0deg)";
+    document.getElementsByClassName("oneShape").style.transform = "rotate(180deg)";
+    document.getElementsByClassName("twoShape").style.transform = "rotate(180deg)";
     localStorage.setItem('display', 'right');
   } else {
     document.getElementById("playerInput").style.transform = "rotate(0deg)";
@@ -473,10 +483,15 @@ function switchButtons(letter) { //better way to do this
   if (letter === "w") { //(38, 39, 37) w, d a
     if (currentPage == "welcome") {
       document.getElementById("getStarted").click();
+      currentPage = "home";
     } else if (currentPage == "home") {
       document.getElementById("playNow").click();
+      currentPage = "game";
     } else if (currentPage == "settings") {
       document.getElementById("setDisplay").click();
+    } else if (currentPage == "gameOver"){
+      document.getElementById("backHomeBtn").click();
+      currentPage = "home";
     }
   } else if (letter === "d") {
     if (currentPage == "home") {
