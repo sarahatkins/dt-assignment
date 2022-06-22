@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PatternPicker</title>
+    <link rel="stylesheet" href="css/patternPicker.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="welcomeUser">
+            <button class="circleBtnOne" id="getStarted"></button>
+        </div>
+
+        <!--container cand o-->
+        <div class="pages hidden">
+            <audio controls loop autoplay hidden id="homeMusic" class="music">
+                <source src="/media/Komiku_-_03_-_Mushrooms.mp3">
+            </audio>
+            <audio controls hidden id="startEffect">
+                <source src="/media/mixkit-winning-a-coin-video-game-2069.wav">
+            </audio>
+            <audio controls hidden id="changeScreen">
+                <source src="/media/YKB7FSZ-card-swipe-5.mp3">
+            </audio>
+            <audio controls hidden loop id="gameMusic" class="music">
+                <source src="/media/Monplaisir_-_03_-_Level_0.mp3">
+            </audio>
+            <audio controls hidden id="goCount">
+                <source src="/media/beep  high.mp3">
+            </audio>
+            <audio controls hidden id="waitCount">
+                <source src="/media/beep low.mp3">
+            </audio>
+            <audio controls hidden id="gameOver">
+                <source src="/media/mixkit-arcade-retro-game-over-213.wav">
+            </audio>
+            <div class="page" id="settingsPg" style="transform: translateX(-100%);">
+                <div id="settingsBtns">
+                    <div style="display: flex; flex-direction: column; gap: 9rem;">
+                        <div>Left</div>
+                        <div>Mute</div>
+                        <div>Go Back</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <button class="circleBtnTwo settingPgBtns" onClick="leftRightFunc()" id="setDisplay"></button>
+
+                        <button class="squareBtnTwo settingPgBtns" onClick="toggleMute()" id="mute"></button>
+
+
+                        <button class="triangleBtnTwo settingPgBtns" onClick="slide('next')" class="back"
+                            id="goBackSet"></button>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="page" id="homePg" style="transform: translateX(-100%);">
+                <center>
+                    <div id="turnOffInst">Turn off console to stop playing</div>
+                </center>
+                <button class="circleBtnOne homePgBtn" id="playNow"></button>
+                <button class="squareBtnOne homePgBtn" onClick="slide('prev')" id="settings"></button>
+                <button class="triangleBtnOne homePgBtn" onClick="slide('next')" id="rules"></button>
+
+            </div>
+            <div class="page" id="rulesPg" style="transform: translateX(-100%);">
+                <div style="margin-top: 10%;">
+                    <p class="ruleWords">• Replicate the pattern that comes on screen</br> before the other player</p>
+                    </br>
+                    <p class="ruleWords">• Get it right and you win a point</p></br>
+                    <p class="ruleWords">• The person with the most points at </br> the end of the time limit wins</p>
+                    </br>
+                </div>
+                <button class="squareBtnTwo" onClick="slide('prev')" class="back squareBtnOnew" id="goBackRules">Go
+                    Back</button>
+
+            </div>
+        </div>
+        <div class="hidden" id="game">
+            <div class='generatedPattern onScreen square' id="square"></div>
+            <div class='generatedPattern onScreen circle' id="circle"></div>
+            <div class='generatedPattern onScreen triangle' id="triangle"></div>
+            <div id="progressBarId"></div>
+            <div id="styleGame">
+                <div class="gameScreen" id="playerInput">
+                    <span class="dispScore" id="oneScore">0</span>
+                </div>
+                <span class="gameScreen" id="patternGenerator">
+
+                </span>
+                <span class="gameScreen" id="playerInput2">
+                    <span class="dispScore" id="twoScore">0</span>
+                </span>
+            </div>
+
+        </div>
+        <div class="hidden" id="gameOverPg">
+            <div id="gameOverInfo">
+                <p id="winner">Winner: </p></br>
+                <P id="oneScoreFin">Player One:</P>
+                <p id="twoScoreFin"> player two score:</p></br>
+                <p id="highscore">High Score</p></br>
+
+            </div>
+
+            <button class="circleBtnOne" id="backHomeBtn">Play Again</button>
+        </div>
+        <div class="startCount hidden">
+            <center>
+                <div class="hidden" id="three">3</div>
+                <div class="hidden" id="two">2</div>
+                <div class="hidden" id="one">1</div>
+            </center>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/patternPicker.js"></script>
+</body>
+
+</html>

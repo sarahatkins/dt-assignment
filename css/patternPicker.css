@@ -1,0 +1,283 @@
+.progressbar {
+  width: 100%;
+  border: solid 1px #000;
+}
+
+.progressbar .inner {
+  height: 10vh;
+  animation: progressbar-countdown;
+  /* Placeholder, this will be updated using javascript */
+  animation-duration: 30000s;
+  /* We stop in the end */
+  animation-iteration-count: 1;
+  /* Stay on pause when the animation is finished finished */
+  animation-fill-mode: forwards;
+  /* We start paused, we start the animation using javascript */
+  animation-play-state: paused;
+  /* We want a linear animation, ease-out is standard */
+  animation-timing-function: linear;
+}
+
+@keyframes progressbar-countdown {
+  0% {
+    width: 100%;
+    background: rgb(3, 255, 3);
+  }
+
+  100% {
+    width: 0%;
+    background: #F00;
+  }
+}
+
+#styleGame{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.btmScrn {
+  bottom: 10%;
+}
+
+.startCount {
+  background-color: pink;
+
+}
+
+.slidecontainer {
+  width: 50%;
+  /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  /* Full-width */
+  height: 25px;
+  /* Specified height */
+  background: #d3d3d3;
+  /* Grey background */
+  outline: none;
+  /* Remove outline */
+  opacity: 0.7;
+  /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s;
+  /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1;
+  /* Fully shown on mouse-over */
+}
+
+#setDisplay{
+}
+
+button {
+  padding: 100px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.homePgBtn{
+  margin-bottom: 3%;
+  margin-left: 5%;
+}
+#getStarted {
+  margin-left: 5%;
+  margin-top: -16%;
+}
+
+.hidden {
+  display: none;
+}
+
+#playerInput2 {
+  transform: rotate(180deg);
+}
+
+.generatedPattern {
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+  margin: 5%;
+}
+
+.circleBtnOne {
+  background-image: url('/images/playerOneBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.circleBtnTwo {
+  background-image: url('/images/playerTwoCircleBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.squareBtnOne {
+  background-image: url('/images/playerOneSqBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.squareBtnTwo {
+  background-image: url('/images/playerTwoSqBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.triangleBtnOne {
+  background-image: url('/images/playerOneTriBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.triangleBtnTwo {
+  background-image: url('/images/pleyerTwoTriBtn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.circle {
+  background-image: url('/images/circlePlayingShape.png');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.triangle {
+  background-image: url('/images/trianglePlayingShape.png');
+  background-position: 50% 50%;
+  background-size: cover;
+
+}
+
+.square {
+  background-image: url('/images/squarePlayingShape.png');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.onScreen {
+  display: none;
+}
+
+#gameOverPg {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(54, 54, 54);
+  background-image: url('/images/gameOverPg.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#gameOverInfo{
+  width: 30%;
+  height: 30vh;
+}
+
+.ruleWords{
+  margin-left: 10%;
+  
+}
+.gameScreen {
+  width: calc(100%/3);
+  height: 90vh;
+  background-color: aqua;
+  border-left: 5px solid rgb(40, 40, 49);
+  border-right: 5px solid rgb(40, 40, 49);
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dispScore {
+  width: 10%;
+  height: 10vh;
+  display: flex;
+  border: 2px black solid;
+  background-color: pink;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.settingPgBtns{
+  margin-right: 3%;
+  margin-top: 3%;
+  
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pages {
+  display: flex;
+  width: 300%;
+  box-sizing: border-box;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.7s;
+}
+
+#welcomeUser {
+  background-image: url('/images/titlePage.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+#settingsBtns{
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  height: 100%;
+  align-items: center;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+#homePg {
+  background-image: url('/images/homePageImg.png');
+  background-size: cover;
+}
+
+#settingsPg {
+  background-image: url('/images/settingsImg.png');
+  background-size: cover;
+}
+
+#rulesPg {
+  background-image: url('/images/rulesImg.png');
+  background-size: cover;
+}
