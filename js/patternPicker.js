@@ -53,7 +53,7 @@ function startGame() {
 
 function gameOver() {
   document.querySelector("#game").style.display = "none";
-  document.querySelector("#gameOverPg").style.display = "block";
+  document.querySelector("#gameOverPg").style.display = "flex";
   currentPage = "gameOver";
   document.getElementById("gameOver").play();
   findWinner();
@@ -296,6 +296,18 @@ function generatePattern(generated, checker) {
   console.log('this is the check array: ' + checker); //correct here
 }
 
+function setGenerateImg(shape){ //TO DO: get Josh
+  if(shape.className !== "oneShape" || shape.className !== "twoShape"){
+    if(shape.className == "circle"){
+      document.getElementById("myImg").src = "/image/circleGenerated";
+    } else if(shape.className == "square"){
+      document.getElementById("myImg").src = "hackanm.gif";
+    }else{
+      document.getElementById("myImg").src = "hackanm.gif";
+    }
+  }
+}
+
 function checkArray(plyFd) {
   var leftRight = localStorage.getItem('display');
   var correct = false;
@@ -371,7 +383,7 @@ function checkArrray(array, clicker, score) {
           setTimeout(function () {
             const removableDiv = document.querySelectorAll('.pattern');
             removableDiv.forEach(pattern => {
-              pattenr.remove();
+              pattern.remove();
             });
             arrOnePatt.splice(0, arrCheck.length);
             arrTwoPatt.splice(0, arrCheck.length);

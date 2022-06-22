@@ -1,6 +1,5 @@
 .progressbar {
   width: 100%;
-  border: solid 1px #000;
 }
 
 .progressbar .inner {
@@ -21,12 +20,12 @@
 @keyframes progressbar-countdown {
   0% {
     width: 100%;
-    background: rgb(3, 255, 3);
+    background: rgb(46, 95, 255);
   }
 
   100% {
     width: 0%;
-    background: #F00;
+    background: rgb(255, 45, 133);
   }
 }
 
@@ -44,6 +43,14 @@
 
 }
 
+#goBackRules{
+  margin-left: 5%;
+  width: 10%;
+  margin-top: -3%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .slidecontainer {
   width: 50%;
   /* Width of the outside container */
@@ -58,7 +65,7 @@
   /* Full-width */
   height: 25px;
   /* Specified height */
-  background: #d3d3d3;
+  background: ivory;
   /* Grey background */
   outline: none;
   /* Remove outline */
@@ -79,7 +86,7 @@
 }
 
 button {
-  padding: 100px;
+  padding: 7%;
   border: transparent;
   background-color: transparent;
 }
@@ -103,8 +110,8 @@ button {
 
 .generatedPattern {
   padding: 10px;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   margin: 5%;
 }
 
@@ -163,6 +170,7 @@ button {
   background-size: cover;
 }
 
+
 .onScreen {
   display: none;
 }
@@ -173,7 +181,7 @@ button {
   background-color: rgb(54, 54, 54);
   background-image: url('/images/gameOverPg.png');
   background-size: cover;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -190,7 +198,7 @@ button {
 .gameScreen {
   width: calc(100%/3);
   height: 90vh;
-  background-color: aqua;
+  background-color: ivory;
   border-left: 5px solid rgb(40, 40, 49);
   border-right: 5px solid rgb(40, 40, 49);
   margin: 0px;
@@ -200,9 +208,16 @@ button {
 }
 
 .dispScore {
-  width: 10%;
-  height: 10vh;
+  margin-top: 5%;
+  width: 25%;
+  height: 13%;
+  font-size: 30px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+   
+  transform: rotate(90deg);
   border: 2px black solid;
   background-color: pink;
 }
@@ -218,7 +233,7 @@ button {
 .settingPgBtns{
   margin-right: 3%;
   margin-top: 3%;
-  
+  padding: 11vh;
 }
 
 button:active {

@@ -37,7 +37,7 @@
             </audio>
             <div class="page" id="settingsPg" style="transform: translateX(-100%);">
                 <div id="settingsBtns">
-                    <div style="display: flex; flex-direction: column; gap: 9rem;">
+                    <div style="display: flex; flex-direction: column; gap: 6rem;">
                         <div>Left</div>
                         <div>Mute</div>
                         <div>Go Back</div>
@@ -66,20 +66,22 @@
 
             </div>
             <div class="page" id="rulesPg" style="transform: translateX(-100%);">
-                <div style="margin-top: 10%;">
-                    <p class="ruleWords">• Replicate the pattern that comes on screen</br> before the other player</p>
+                <div style="margin-top: 12%;">
+                    <p class="ruleWords">• Copy the pattern that</br> comes on screen before the other</br> player</p>
                     </br>
-                    <p class="ruleWords">• Get it right and you win a point</p></br>
-                    <p class="ruleWords">• The person with the most points at </br> the end of the time limit wins</p>
+                    <p class="ruleWords">• Get it right and win a point</p></br>
+                    <p class="ruleWords">• Whoever has the most </br>points at the end of the time </br> limit wins</p>
                     </br>
                 </div>
-                <button class="squareBtnTwo" onClick="slide('prev')" class="back squareBtnOnew" id="goBackRules">Go
-                    Back</button>
+                <div style="display: flex; gap: 0.5rem">
+                    <button class="squareBtnTwo" onClick="slide('prev')" class="back squareBtnOnew"
+                        id="goBackRules"></button> <p style="font-size: 35px; font-weight: bolder;">Go Back</p>
+                </div>
 
             </div>
         </div>
         <div class="hidden" id="game">
-            <div class='generatedPattern onScreen square' id="square"></div>
+            <div class='generatedPattern onScreen square ' id="square"></div>
             <div class='generatedPattern onScreen circle' id="circle"></div>
             <div class='generatedPattern onScreen triangle' id="triangle"></div>
             <div id="progressBarId"></div>
