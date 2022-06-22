@@ -236,6 +236,7 @@ function winsPoint(score, disp) {
   console.log(txtScore);
   //replace on screen 
   document.getElementById(disp).innerHTML = txtScore;
+  document.getElementById("winPointSound").play();
   setTimeout(function () {
     const removableDiv = document.querySelectorAll('.pattern');
     removableDiv.forEach(pattern => {
@@ -255,18 +256,23 @@ function incorrect(plyOneFd) { //need to create individual ones because this isn
   setTimeout(function () {
     if (plyOneFd === true) {
       const removableDiv = document.querySelectorAll('.oneShape');
+      document.querySelector("#playerInput").style.backgroundColor = "#ff6666";
       removableDiv.forEach(oneShape => {
         oneShape.remove();
       });
     } else {
       const removableDiv = document.querySelectorAll('.twoShape');
+      document.querySelector("#playerInput2").style.backgroundColor = "#ff6666";
       removableDiv.forEach(twoShape => {
         twoShape.remove();
       });
     }
-    //TO DO: make it stop removing from both sides
-    //chang colour make to make more noticable that it is wrong
   }, 500);
+  setTimeout(function(){
+    document.querySelector("#playerInput").style.backgroundColor = "ivory";
+    document.querySelector("#playerInput2").style.backgroundColor = "ivory";
+  },  1200);
+
 }
 
 function playerMoves(foundPlayer, shape) {

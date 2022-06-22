@@ -6,7 +6,7 @@
   height: 10vh;
   animation: progressbar-countdown;
   /* Placeholder, this will be updated using javascript */
-  animation-duration: 30000s;
+  animation-duration: 30s;
   /* We stop in the end */
   animation-iteration-count: 1;
   /* Stay on pause when the animation is finished finished */
@@ -91,9 +91,6 @@
 .slider:hover {
   opacity: 1;
   /* Fully shown on mouse-over */
-}
-
-#setDisplay{
 }
 
 button {
