@@ -20,7 +20,7 @@
 @keyframes progressbar-countdown {
   0% {
     width: 100%;
-    background: rgb(46, 95, 255);
+    background: rgb(67, 46, 255);
   }
 
   100% {

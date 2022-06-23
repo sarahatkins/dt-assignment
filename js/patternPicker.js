@@ -18,7 +18,8 @@ var twoScore = 0;
 var arrplayer1 = ['87', '68', '65']; //w, d, a
 var arrplayer2 = ['38', '39', '37'];
 //settings to check if what way the images show up and are checked
-var displaySet = localStorage.setItem('display', 'left');
+var displaySet = localStorage.getItem('display');
+changeLR(displaySet);
 //setting highscore
 var highscore = localStorage.getItem('highScore'); //sets it to zero every time
 //setting currentPage
@@ -78,6 +79,8 @@ function highScore() {
   }
 }
 
+
+
 function createProgressbar(callback) {
   // We select the div that we want to turn into a progressbar
   var progressbar = document.getElementById("progressBarId");
@@ -112,9 +115,9 @@ function displayShapeGenerated(shape, generator) {//loop through and display
   let div = document.createElement('div');
   div.className = 'generatedPattern pattern ' + shape;
   //TO DO: add in a function that sifts through shapes and gives specific id
-  if(shape == "circle"){
+  if (shape == "circle") {
     div.id = 'genCircleId';
-  } else if (shape == 'square'){
+  } else if (shape == 'square') {
     div.id = 'genSquareId';
   } else {
     div.id = 'genTriId';
@@ -268,10 +271,10 @@ function incorrect(plyOneFd) { //need to create individual ones because this isn
       });
     }
   }, 500);
-  setTimeout(function(){
+  setTimeout(function () {
     document.querySelector("#playerInput").style.backgroundColor = "ivory";
     document.querySelector("#playerInput2").style.backgroundColor = "ivory";
-  },  1200);
+  }, 1200);
 
 }
 
@@ -459,25 +462,49 @@ document.querySelector("#backHomeBtn").addEventListener("click", (e) => {
 });
 
 
-function leftRightFunc() {
-  var lOrR = localStorage.getItem('display');
-  if (document.getElementById('txtLeft').innerHTML === "Left") {
-    document.getElementById('txtLeft').innerHTML = "Right";
-  } else {
-    document.getElementById('txtLeft').innerHTML = "Left";
+function checkLeftRight() {
+  var disp = localStorage.getItem('display');
+  if (disp == null) {
+    localStorage.setItem('highScore', "left");
+    disp = "left";
   }
 
-  lOrR === 'left' ? lOrR = 'right' : lOrR = 'left';
+  var left = '';
+  left = (disp === 'left' ? disp = 'right' : disp = 'left');
+
+  changeLR(left);
+}
+
+function changeLR(lOrR) {
+  if (lOrR == "left") {
+    document.getElementById('txtLeft').innerHTML = "Left";
+  } else {
+    document.getElementById('txtLeft').innerHTML = "Right";
+  }
+
+  localStorage.setItem('display', lOrR);
   if (lOrR == "right") {
     document.getElementById("playerInput").style.transform = "rotate(180deg)";
     document.getElementById("playerInput2").style.transform = "rotate(0deg)";
-    document.getElementsByClassName("oneShape").style.transform = "rotate(180deg)";
-    document.getElementsByClassName("twoShape").style.transform = "rotate(180deg)";
+    let shapeStyle = document.createElement("style");
+    shapeStyle.innerHTML = `.oneShape,
+    .twoShape{
+      transform: rotate(180deg)
+    }
+    .dispScore {
+      transform: rotate(-90deg)
+    }`;
+    shapeStyle.id = "shapeStyle";
+    document.body.appendChild(shapeStyle);
     localStorage.setItem('display', 'right');
   } else {
     document.getElementById("playerInput").style.transform = "rotate(0deg)";
     document.getElementById("playerInput2").style.transform = "rotate(180deg)";
     localStorage.setItem('display', 'left');
+    let shapeStyle = document.getElementById('shapeStyle')
+    if (shapeStyle) {
+      shapeStyle.remove();
+    }
   }
 }
 
@@ -493,9 +520,7 @@ function switchButtons(letter) { //better way to do this
     } else if (currentPage == "home") {
       document.getElementById("playNow").click();
       currentPage = "game";
-    } else if (currentPage == "settings") {
-      document.getElementById("setDisplay").click();
-    } else if (currentPage == "gameOver"){
+    } else if (currentPage == "gameOver") {
       document.getElementById("backHomeBtn").click();
       currentPage = "home";
     }
