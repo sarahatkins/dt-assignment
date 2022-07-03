@@ -57,7 +57,7 @@
 #goBackRules{
   margin-left: 5%;
   width: 10%;
-  margin-top: -3%;
+  margin-top: -2%;
   font-size: 25px;
   font-weight: bold;
 }
@@ -220,7 +220,7 @@ button {
 
 .ruleWords{
   margin-left: 10%;
-  
+  margin-bottom: 2%;
 }
 .gameScreen {
   width: calc(100%/3);
