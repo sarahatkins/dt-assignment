@@ -385,53 +385,6 @@ function reverseCheck(array) {
   return correct;
 }
 
-//checks if the pattern is correct
-function checkArrray(array, clicker, score) {
-  if (clicker == 3) {
-    var count = 0;
-    while (count < array.length) {
-      console.log(array[count]);
-      console.log(arrCheck[count]);
-      if (array[count] === arrCheck[count]) { //isn't working
-        count++;
-        if (count == 3) {
-          score++;
-          console.log('win');
-          setTimeout(function () {
-            const removableDiv = document.querySelectorAll('.pattern');
-            removableDiv.forEach(pattern => {
-              pattern.remove();
-            });
-            arrOnePatt.splice(0, arrCheck.length);
-            arrTwoPatt.splice(0, arrCheck.length);
-            arrCheck.splice(0, arrCheck.length);
-            generatePattern(genPattern, arrCheck);
-            findPlayer(); //gotta find a better way to find between the two and add points.
-            addPoint();
-            //chang colour make to make more noticable that it is right
-          }, 500);
-          break;
-        }
-      } else {
-        console.log('Incorrect pattern');
-        playerOneClick = 0;
-        playerTwoClick = 0;
-        setTimeout(function () {
-          arrOnePatt = [];
-          arrTwoPatt = [];
-          const removableDiv = document.querySelectorAll('.removable');
-          removableDiv.forEach(removable => {
-            removable.remove();
-          });
-          //change colour make to make more noticable that it is wrong
-        }, 500);
-        correct = false;
-        break;
-      }
-    }
-  }
-}
-
 //-- sliding transitions
 const pages = document.querySelectorAll(".page");
 const translateAmount = 100;
@@ -544,17 +497,16 @@ function switchButtons(letter) { //better way to do this
       document.getElementById("changeScreen").play();
       currentPage = "settings";
     }
-  } else if (letter === "37") {
+  } else if (letter === "38") {
     if (currentPage == "settings") {
       document.getElementById("setDisplay").click();
     }
-  } else if (letter === "38") {
+  } else if (letter === "37") {
     if (currentPage == "settings") {
       document.getElementById("goBackSet").click();
       document.getElementById("changeScreen").play();
       currentPage = "home";
     }
-
   }
 }
 
